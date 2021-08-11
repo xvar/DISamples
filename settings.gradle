@@ -1,0 +1,20 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "NavigationSamples"
+include ':app'
+include ':base:contract'
+include ':feature:product:tns'
+include ':feature:monetization:vas'
+include ':feature:monetization:tariff'
+include ':feature:monetization:limit'
+include ':feature:monetization:store'
+include ':feature:monetization:ads'
+include ':feature:monetization:b2b'
+include ':feature:verticals:service'
+include ':feature:verticals:auto'
+include ':feature:verticals:realty'
