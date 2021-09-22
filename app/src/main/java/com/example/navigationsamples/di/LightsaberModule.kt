@@ -1,9 +1,8 @@
 package com.example.navigationsamples.di
 
+import com.example.navigationsamples.vas.di.VasComponent
 import io.michaelrocks.lightsaber.ImportedBy
-import io.michaelrocks.lightsaber.Module
 
-@Module(isDefault = true)
-@ImportedBy(LightsaberComponent::class)
+@ImportedBy(VasComponent::class)
 internal class LightsaberModule {
 }
