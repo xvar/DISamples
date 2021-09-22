@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'io.michaelrocks.lightsaber.android'
 }
 
 android {
@@ -32,6 +33,10 @@ android {
 }
 
 dependencies {
+    implementation project(":feature:monetization:vas")
+    implementation project(":base:contract")
+
+    implementation 'io.michaelrocks:lightsaber-core-kotlin:0.14.1-beta'
 
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
