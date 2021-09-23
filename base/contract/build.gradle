@@ -10,4 +10,5 @@ java {
 
 dependencies {
     implementation 'javax.inject:javax.inject:1'
+    implementation 'io.michaelrocks:lightsaber-core-kotlin:0.14.1-beta'
 }
