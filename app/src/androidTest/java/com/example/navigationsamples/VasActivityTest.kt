@@ -1,20 +1,14 @@
-package com.example.vas
+package com.example.navigationsamples
 
-import androidx.lifecycle.Lifecycle
-import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.core.app.ActivityScenario
+import androidx.test.platform.app.InstrumentationRegistry
 import com.agoda.kakao.text.KTextView
 import com.example.navigationsamples.vas.R
 import com.example.navigationsamples.vas.VasActivity
-import com.example.navigationsamples.vas.di.VasComponent
 import com.example.util.ToastTextProvider
 import com.kaspersky.kaspresso.screens.KScreen
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
-import org.junit.Rule
 import org.junit.Test
-import io.michaelrocks.lightsaber.ProviderInterceptor
-
-import io.michaelrocks.lightsaber.Lightsaber
-import org.junit.Before
 import javax.inject.Provider
 
 
@@ -31,13 +25,13 @@ class VasScreen : KScreen<VasScreen>() {
 class VasActivityTest : TestCase() {
 
     private val appInitScreen = VasScreen()
-    @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(appInitScreen.viewClass)
+    lateinit var activityScenario : ActivityScenario<VasActivity>
 
     private val TEST_TOAST = "Some test toast string"
 
     fun setupToastTextProvider() {
-            Lightsaber.get().newBuilder()
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext.applicationContext as Application
+        appContext.lightsaber =  appContext.lightsaber.newBuilder()
             .addProviderInterceptor { chain, key ->
                 if (key.type === ToastTextProvider::class.java) {
                     Provider<Any?> {
@@ -62,15 +56,15 @@ class VasActivityTest : TestCase() {
     fun checkLogoIsDisplayed() {
         before {
             setupToastTextProvider()
-            activityScenarioRule.scenario.moveToState(Lifecycle.State.RESUMED)
+            activityScenario = ActivityScenario.launch(VasActivity::class.java)
         }.after {
-            //do nothing
+            activityScenario.close()
         }.run {
             step("Open App Init") {
                 appInitScreen {
                     label {
                         isDisplayed()
-
+                         this.containsText(TEST_TOAST)
                     }
                 }
             }
