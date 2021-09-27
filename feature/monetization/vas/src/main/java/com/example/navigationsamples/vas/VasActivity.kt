@@ -4,13 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
-import com.example.navigationsamples.vas.di.VasComponent
 import com.example.util.ToastTextProvider
-import io.michaelrocks.lightsaber.Lightsaber
 import javax.inject.Inject
 
-//import io.michaelrocks.lightsaber.Lightsaber
-//import javax.inject.Inject
 
 class VasActivity : AppCompatActivity() {
 

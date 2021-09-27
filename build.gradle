@@ -8,7 +8,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
-        classpath 'io.michaelrocks:lightsaber-gradle-plugin:0.14.1-beta'
+        classpath 'com.joom.lightsaber:lightsaber-gradle-plugin:1.0.0-alpha07'
     }
 }
 

@@ -1,9 +1,25 @@
 package com.example.navigationsamples.vas.di
 
-import io.michaelrocks.lightsaber.ImportedBy
-import io.michaelrocks.lightsaber.Module
+import com.example.util.ToastTextProvider
+import com.example.util.ToastTextProviderImpl
+import com.example.util.TweetPartProvider
+import com.example.util.TweetPartProviderImpl
+import com.joom.lightsaber.ImportedBy
+import com.joom.lightsaber.Module
+import com.joom.lightsaber.Provide
 
-@Module(isDefault = true)
+@Module
 @ImportedBy(VasComponent::class)
-internal class VasModule {
+class VasModule {
+
+    @Provide
+    fun provideTweetProvider() : TweetPartProvider {
+        return TweetPartProviderImpl()
+    }
+
+    @Provide
+    fun provideToastTextProvider(tweetPartProvider: TweetPartProvider) : ToastTextProvider {
+        return ToastTextProviderImpl(tweetPartProvider)
+    }
+
 }

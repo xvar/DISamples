@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import com.example.navigationsamples.vas.VasActivity
 import com.example.navigationsamples.vas.di.VasComponent
-import io.michaelrocks.lightsaber.Lightsaber
+import com.joom.lightsaber.Lightsaber
 
 class Application: Application() {
 

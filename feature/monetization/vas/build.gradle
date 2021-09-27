@@ -32,7 +32,7 @@ android {
 
 dependencies {
     implementation project(":base:contract")
-    implementation 'io.michaelrocks:lightsaber-core-kotlin:0.14.1-beta'
+    implementation 'com.joom.lightsaber:lightsaber-core-kotlin:1.0.0-alpha07'
 
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -41,7 +41,8 @@ dependencies {
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:core-ktx:1.4.0'
-    androidTestImplementation 'io.michaelrocks:lightsaber-core-kotlin:0.14.1-beta'
+    androidTestImplementation 'com.joom.lightsaber:lightsaber-core-kotlin:1.0.0-alpha07'
+    androidTestImplementation 'com.joom.lightsaber:lightsaber-test:1.0.0-alpha07'
     androidTestImplementation 'androidx.test:core-ktx:1.4.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'com.kaspersky.android-components:kaspresso:1.2.0'

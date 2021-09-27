@@ -1,6 +1,7 @@
 package com.example.navigationsamples.di
 
-import io.michaelrocks.lightsaber.Component
+import com.joom.lightsaber.Component
+
 
 @Component
 class LightsaberComponent {
