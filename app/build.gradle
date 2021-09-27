@@ -17,9 +17,20 @@ android {
         testInstrumentationRunner "com.example.navigationsamples.CustomAppTestRunner"
     }
 
+    signingConfigs {
+        release {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            //todo fix path for keystore
+            storeFile file('../../../../.android/debug.keystore')
+            storePassword 'android'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

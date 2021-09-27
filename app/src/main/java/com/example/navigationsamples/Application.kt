@@ -6,11 +6,18 @@ import android.os.Bundle
 import android.util.Log
 import com.example.navigationsamples.vas.VasActivity
 import com.example.navigationsamples.vas.di.VasComponent
+import com.joom.lightsaber.Injector
 import com.joom.lightsaber.Lightsaber
 
 class Application: Application() {
 
     var lightsaber: Lightsaber = Lightsaber.Builder().build()
+    //won't work
+    //val vasComponent = VasComponent()
+    lateinit var vasInjector : Injector
+    init {
+        vasInjector = lightsaber.createInjector(VasComponent())
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -19,11 +26,10 @@ class Application: Application() {
             override fun onActivityPreCreated(activity: Activity, savedInstanceState: Bundle?) {
                 super.onActivityPreCreated(activity, savedInstanceState)
                 //gross hack don't do this =)
-                if (activity is VasActivity) {
+                if (activity is VasActivity || activity is MainActivity) {
                     Log.e("DI", "Activity is VasActivity")
                     //todo make wrapper
-                    val injector = lightsaber.createInjector(VasComponent())
-                    injector.injectMembers(activity)
+                    vasInjector.injectMembers(activity)
                 }
             }
 

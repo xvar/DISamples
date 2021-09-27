@@ -75,7 +75,8 @@ class VasActivityTest : TestCase() {
         appContext.lightsaber.createInjector(VasTestComponent())
             .injectMembers(this)
 
-        appContext.lightsaber =  appContext.lightsaber.newBuilder()
+        //ATTENTION - Injector should be swapped
+        appContext.vasInjector =  appContext.lightsaber.newBuilder()
             .addProviderInterceptor { chain, key ->
                 if (key.type === ToastTextProvider::class.java) {
                     Provider<Any?> {
@@ -86,6 +87,7 @@ class VasActivityTest : TestCase() {
                 }
             }
             .build()
+            .createInjector(VasTestComponent())
     }
 
     //Проверяем лого на стартовом скрине
